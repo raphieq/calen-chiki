@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CalenChiki</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<h1>CALEN-CHIKI</h1>
+<h2>Calender app for couples</h2>
+<nav>
+<%= link_to "HOME", welcome_index_path %>
+<%= link_to "EVENTS", '/events' %>
+</nav>
+<%= yield %>
+
+</body>
+</html>
