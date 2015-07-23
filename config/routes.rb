@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :diaries
+
   get 'welcome/index'
 
   resources :events
