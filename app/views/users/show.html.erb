@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Income:</strong>
+  <%= @user.income %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @user.dob %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @user.about %>
+</p>
+
+<p>
+  <strong>Img url:</strong>
+  <%= @user.img_url %>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Date created</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Img url</th>
+      <th>Tag</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+<h2>Happenings created:</h2>
+  <tbody>
+    <% @happenings.each do |happening| %>
+      <tr>
+        <td><%= happening.date_created %></td>
+        <td><%= happening.title %></td>
+        <td><%= happening.description %></td>
+        <td><%= happening.img_url %></td>
+        <td><%= happening.tag %></td>
+        <td><%= link_to 'Show', happening %></td>
+        <td><%= link_to 'Edit', edit_happening_path(happening) %></td>
+        <td><%= link_to 'Destroy', happening, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+

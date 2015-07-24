@@ -1,0 +1,15 @@
+<h1>Calender#index</h1>
+<p>Find me in app/views/calender/index.html.erb</p>
+<div id="calender">
+<h2 id="month"><%= link_to "<", date:@date.prev_month %><%= @date.strftime("%B %Y") %><%= link_to ">", date:@date.next_month %></h2>
+<%= calender @date do |date| %>
+	<%= date.day %>
+	<% if @happenings_by_date[date] %>
+	<ul>
+		<% @happenings_by_date[date].each do |happening| %>
+		<li><%= link_to happening.title, happening %></li>
+		<% end %>
+	</ul>
+	<% end %>
+<% end %>
+</div>

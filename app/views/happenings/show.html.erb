@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date created:</strong>
+  <%= @happening.date_created %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @happening.user_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @happening.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @happening.description %>
+</p>
+
+<p>
+  <strong>Img url:</strong>
+  <%= @happening.img_url %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @happening.tag %>
+</p>
+
+<%= link_to 'Edit', edit_happening_path(@happening) %> |
+<%= link_to 'Back', happenings_path %>

@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :users
+
+  resources :happenings
+
+  get 'calender' => 'calender#index'
+  get 'calender/index'
+
   resources :diaries
 
   get 'welcome/index'

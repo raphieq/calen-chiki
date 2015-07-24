@@ -1,0 +1,35 @@
+<h1>Listing happenings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date created</th>
+      <th>User</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Img url</th>
+      <th>Tag</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @happenings.each do |happening| %>
+      <tr>
+        <td><%= happening.date_created %></td>
+        <td><%= happening.user_id %></td>
+        <td><%= happening.title %></td>
+        <td><%= happening.description %></td>
+        <td><%= happening.img_url %></td>
+        <td><%= happening.tag %></td>
+        <td><%= link_to 'Show', happening %></td>
+        <td><%= link_to 'Edit', edit_happening_path(happening) %></td>
+        <td><%= link_to 'Destroy', happening, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Happening', new_happening_path %>
