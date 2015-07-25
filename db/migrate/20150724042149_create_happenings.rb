@@ -1,4 +1,5 @@
 class CreateHappenings < ActiveRecord::Migration
+
   def change
     create_table :happenings do |t|
       t.date :date_created
@@ -11,4 +12,5 @@ class CreateHappenings < ActiveRecord::Migration
       t.timestamps
     end
   end
+
 end
