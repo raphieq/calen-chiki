@@ -2,14 +2,36 @@
 <p>Find me in app/views/calender/index.html.erb</p>
 <div id="calender">
 <h2 id="month"><%= link_to "<", date:@date.prev_month %><%= @date.strftime("%B %Y") %><%= link_to ">", date:@date.next_month %></h2>
+
 <%= calender @date do |date| %>
 	<%= date.day %>
+	<% new_date = date.strftime("%d-%m") %>
+	<% if @user_by_dob[new_date] %>
+	<% if @user_by_dob[new_date].length == 1 %>
+	<ul>
+		<% @user_by_dob[new_date].each do |dob| %>
+		<li><%= link_to "#{dob.name}'s Birthday", dob %></li>
+		<% end %>
+	</ul>
+	<% else %>
+	<ul>
+		<li><%= link_to "#{@user_by_dob[new_date].length} birthday!", users_path %> </li>
+	</ul>
+	<% end %>
+	<% end %>
+
 	<% if @happenings_by_date[date] %>
+	<% if @happenings_by_date[date].length == 1 %>
 	<ul>
 		<% @happenings_by_date[date].each do |happening| %>
 		<li><%= link_to happening.title, happening %></li>
 		<% end %>
 	</ul>
+	<% else %>
+	<ul>
+		<li><%= link_to "#{@happenings_by_date[date].length} events!", happenings_path %> </li>
+	</ul>
+	<% end %>
 	<% end %>
 <% end %>
 </div>
